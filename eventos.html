@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Próximos eventos – Gestión de Eventos | Equipo Comercial</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="img/logo.png" alt="Central Ganadera S.A.">
+        <div class="sidebar-titulo">
+          <h1>GESTIÓN DE EVENTOS</h1>
+          <p>Equipo Comercial</p>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">📊 Dashboard</a></li>
+        <li><a href="eventos.html" class="activo">📅 Próximos eventos</a></li>
+        <li><a href="calendario.html">🗓️ Calendario</a></li>
+        <li><a href="historico.html">🗂️ Histórico</a></li>
+      </ul>
+      <div class="sidebar-footer">Central Ganadera S.A.</div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2>Próximos eventos</h2>
+          <p>Todos los eventos que aún no se han realizado, ordenados por cercanía.</p>
+        </div>
+        <div class="page-header-acciones">
+          <div id="alertas-root"></div>
+          <button id="btn-nuevo-evento" class="btn-primario">+ Nuevo evento</button>
+        </div>
+      </div>
+
+      <div class="barra-filtros">
+        <div class="fila-filtros">
+          <input type="text" id="buscar-evento" placeholder="🔍 Buscar por nombre del evento...">
+          <select id="filtro-tipo">
+            <option value="">Todos los tipos</option>
+          </select>
+          <input type="text" id="filtro-municipio" placeholder="Municipio">
+          <input type="text" id="filtro-departamento" placeholder="Departamento">
+          <input type="month" id="filtro-mes">
+        </div>
+        <div class="chips-rapidos">
+          <button class="chip-filtro activo" data-filtro="todos">Todos</button>
+          <button class="chip-filtro" data-filtro="hoy">Hoy</button>
+          <button class="chip-filtro" data-filtro="semana">Esta semana</button>
+          <button class="chip-filtro" data-filtro="mes">Este mes</button>
+          <button class="chip-filtro" data-filtro="importantes">⭐ Importantes</button>
+        </div>
+        <div class="chips-rapidos chips-clasificacion-eventos">
+          <button class="chip-clasificacion activo" data-clasificacion="todos">Todos</button>
+          <button class="chip-clasificacion" data-clasificacion="nacional">🇨🇴 Nacionales</button>
+          <button class="chip-clasificacion" data-clasificacion="internacional">🌎 Internacionales</button>
+        </div>
+      </div>
+
+      <p class="contador-resultados" id="contador-resultados">Cargando eventos...</p>
+
+      <div class="lista-eventos" id="lista-eventos"></div>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/eventos.js"></script>
+</body>
+</html>

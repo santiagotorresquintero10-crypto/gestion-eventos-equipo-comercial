@@ -1,0 +1,1038 @@
+/* ============================================================
+   styles.css
+   Paleta extraída directamente del logo de Central Ganadera S.A.
+   ============================================================ */
+
+:root {
+  --verde-principal: #86A315;
+  --verde-oscuro: #4E5F0C;
+  --verde-claro: #EEF3DE;
+  --terracota: #D35E13;
+  --terracota-oscuro: #A84A0F;
+  --terracota-claro: #FBE7DA;
+
+  --fondo-general: #F4F6F2;
+  --fondo-tarjeta: #FFFFFF;
+  --texto-oscuro: #24301A;
+  --texto-medio: #5B6650;
+  --blanco: #FFFFFF;
+  --gris-borde: #E1E6D9;
+
+  --rojo-alerta: #C0392B;
+  --nacional: #2F6FBD;
+  --internacional: #8B5CF6;
+  --sombra: 0 2px 8px rgba(36, 48, 26, 0.08);
+
+  --ancho-sidebar: 240px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--fondo-general);
+  color: var(--texto-oscuro);
+}
+
+a {
+  color: var(--terracota-oscuro);
+}
+
+/* ===================== LAYOUT GENERAL ===================== */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: var(--ancho-sidebar);
+  flex-shrink: 0;
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sidebar-logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.sidebar-titulo h1 {
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+}
+
+.sidebar-titulo p {
+  font-size: 11px;
+  color: var(--terracota-claro);
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+.sidebar-nav a.activo {
+  background-color: var(--verde-principal);
+  opacity: 1;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 11px;
+  opacity: 0.6;
+  padding-top: 16px;
+}
+
+/* ===================== CONTENIDO PRINCIPAL ===================== */
+.main-content {
+  flex: 1;
+  padding: 24px 32px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.page-header h2 {
+  font-size: 22px;
+  color: var(--texto-oscuro);
+}
+
+.page-header p {
+  font-size: 13px;
+  color: var(--texto-medio);
+  margin-top: 2px;
+}
+
+/* ===================== BOTONES ===================== */
+.btn-primario {
+  background-color: var(--terracota);
+  color: var(--blanco);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+.btn-primario:hover { background-color: var(--terracota-oscuro); }
+.btn-primario:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-cancelar {
+  background-color: transparent;
+  color: var(--texto-medio);
+  border: 1px solid var(--gris-borde);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-cancelar:hover { background-color: var(--fondo-general); }
+
+/* ===================== TARJETAS DE INDICADORES (DASHBOARD) ===================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--verde-principal);
+}
+
+.stat-card.acento-terracota { border-left-color: var(--terracota); }
+
+.stat-card .stat-numero {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+.stat-card.acento-terracota .stat-numero { color: var(--terracota-oscuro); }
+
+.stat-card .stat-etiqueta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--texto-medio);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.stat-card .stat-desglose {
+  font-size: 11px;
+  color: var(--texto-medio);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--gris-borde);
+}
+
+/* ===================== SECCIONES ===================== */
+.seccion-titulo {
+  font-size: 16px;
+  color: var(--texto-oscuro);
+  margin: 24px 0 12px;
+  font-weight: 700;
+}
+
+/* ===================== LISTA DE EVENTOS (GRID DE TARJETAS) ===================== */
+.lista-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.mensaje-vacio {
+  color: var(--texto-medio);
+  font-size: 14px;
+  padding: 24px;
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  border: 1px dashed var(--gris-borde);
+  grid-column: 1 / -1;
+}
+
+/* ===================== TARJETA DE EVENTO ===================== */
+.tarjeta-evento {
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--gris-borde);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tarjeta-evento.es-importante {
+  outline: 2px solid var(--terracota);
+  outline-offset: -2px;
+}
+
+.tarjeta-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.badge-estado {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  background-color: var(--gris-borde);
+  color: var(--texto-oscuro);
+}
+
+.tarjeta-dias {
+  font-size: 12px;
+  color: var(--texto-medio);
+  font-weight: 600;
+}
+
+.badge-clasificacion {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.badge-clasificacion.clasificacion-nacional {
+  background-color: #E7F0FA;
+  color: var(--nacional);
+  border-color: #BBD6EF;
+}
+
+.badge-clasificacion.clasificacion-internacional {
+  background-color: #F1EBFC;
+  color: var(--internacional);
+  border-color: #D8C7F5;
+}
+
+.tarjeta-estrella {
+  margin-left: auto;
+  font-size: 16px;
+}
+
+.tarjeta-nombre {
+  font-size: 16px;
+  color: var(--texto-oscuro);
+}
+
+.tarjeta-tipo {
+  font-size: 12px;
+  color: var(--terracota-oscuro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.tarjeta-dato {
+  font-size: 13px;
+  color: var(--texto-medio);
+}
+
+.tarjeta-dato strong {
+  color: var(--texto-oscuro);
+}
+
+.tarjeta-acciones {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gris-borde);
+}
+
+.btn-accion {
+  font-size: 12px;
+  border: 1px solid var(--gris-borde);
+  background-color: var(--fondo-general);
+  color: var(--texto-oscuro);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-accion:hover { background-color: var(--gris-borde); }
+.btn-accion.btn-eliminar:hover { background-color: #FADBD8; color: var(--rojo-alerta); border-color: #F1B0AA; }
+.btn-accion.btn-importante:hover { background-color: var(--terracota-claro); border-color: var(--terracota); }
+
+/* Estados de proximidad: nunca dependen solo del color, siempre llevan texto */
+.tarjeta-evento.estado-hoy { border-left-color: var(--rojo-alerta); }
+.tarjeta-evento.estado-hoy .badge-estado { background-color: var(--rojo-alerta); color: var(--blanco); }
+
+.tarjeta-evento.estado-manana { border-left-color: var(--terracota); }
+.tarjeta-evento.estado-manana .badge-estado { background-color: var(--terracota); color: var(--blanco); }
+
+.tarjeta-evento.estado-proximo { border-left-color: #E0A526; }
+.tarjeta-evento.estado-proximo .badge-estado { background-color: #E0A526; color: var(--blanco); }
+
+.tarjeta-evento.estado-semana { border-left-color: var(--verde-principal); }
+.tarjeta-evento.estado-semana .badge-estado { background-color: var(--verde-principal); color: var(--blanco); }
+
+.tarjeta-evento.estado-lejano { border-left-color: #7C8B99; }
+.tarjeta-evento.estado-lejano .badge-estado { background-color: #7C8B99; color: var(--blanco); }
+
+.tarjeta-evento.estado-pasado { border-left-color: var(--gris-borde); opacity: 0.85; }
+.tarjeta-evento.estado-pasado .badge-estado { background-color: var(--gris-borde); color: var(--texto-medio); }
+
+/* ===================== BUSCADOR Y FILTROS ===================== */
+.barra-filtros {
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+  margin-bottom: 20px;
+}
+
+.fila-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.fila-filtros input,
+.fila-filtros select {
+  flex: 1;
+  min-width: 140px;
+  padding: 9px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: var(--fondo-general);
+}
+
+.chips-rapidos {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip-filtro {
+  border: 1px solid var(--gris-borde);
+  background-color: var(--fondo-general);
+  color: var(--texto-medio);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip-filtro.activo {
+  background-color: var(--verde-principal);
+  border-color: var(--verde-principal);
+  color: var(--blanco);
+}
+
+.contador-resultados {
+  font-size: 12px;
+  color: var(--texto-medio);
+  margin-bottom: 12px;
+}
+
+/* ===================== MODAL / FORMULARIO ===================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(36, 48, 26, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Utilidad global: oculta cualquier elemento, sin importar su clase específica.
+   Antes solo existía como ".modal-overlay.oculto", por lo que otros elementos
+   con la clase "oculto" (como el panel de alertas) no se ocultaban en realidad. */
+.oculto {
+  display: none !important;
+}
+
+.modal-overlay.oculto {
+  display: none;
+}
+
+.modal-caja {
+  background-color: var(--blanco);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  color: var(--texto-oscuro);
+}
+
+.modal-cerrar {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--texto-medio);
+  line-height: 1;
+}
+
+.form-evento fieldset {
+  border: none;
+  border-top: 1px solid var(--gris-borde);
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+
+.form-evento legend {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--verde-oscuro);
+  padding: 0 4px 0 0;
+}
+
+.form-evento label {
+  display: block;
+  font-size: 13px;
+  color: var(--texto-medio);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.form-evento input,
+.form-evento select,
+.form-evento textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--texto-oscuro);
+  background-color: var(--fondo-general);
+}
+
+.form-evento input:focus,
+.form-evento select:focus,
+.form-evento textarea:focus {
+  outline: 2px solid var(--verde-principal);
+  outline-offset: 1px;
+}
+
+.fila-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.check-label input { width: auto; margin: 0; }
+
+.modal-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* ===================== RECURRENCIA (dentro del modal) ===================== */
+.dias-semana {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dias-semana-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--texto-medio);
+  margin-right: 4px;
+}
+
+.check-dia {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: var(--fondo-general);
+  border: 1px solid var(--gris-borde);
+  padding: 5px 9px;
+  border-radius: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+.check-dia input { width: auto; margin: 0; }
+
+.texto-ayuda {
+  font-size: 12px;
+  color: var(--texto-medio);
+  margin-top: 4px;
+}
+
+.tarjeta-recurrente {
+  font-size: 14px;
+}
+
+/* ===== Selector de alcance (Solo este / Siguientes / Toda la serie) ===== */
+.modal-caja-chica {
+  max-width: 420px;
+}
+
+.modal-caja-chica h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: var(--texto-oscuro);
+}
+
+.opciones-alcance {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.btn-alcance {
+  background-color: var(--fondo-general);
+  border: 1px solid var(--gris-borde);
+  padding: 12px 14px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  cursor: pointer;
+}
+.btn-alcance:hover {
+  background-color: var(--verde-claro);
+  border-color: var(--verde-principal);
+}
+
+/* ===================== CLASIFICACIÓN NACIONAL / INTERNACIONAL ===================== */
+.barra-clasificacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chip-clasificacion {
+  border: 1px solid var(--gris-borde);
+  background-color: var(--fondo-tarjeta);
+  color: var(--texto-medio);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip-clasificacion.activo {
+  background-color: var(--verde-principal);
+  border-color: var(--verde-principal);
+  color: var(--blanco);
+}
+
+.leyenda-clasificacion {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--texto-medio);
+  font-weight: 600;
+}
+
+.leyenda-clasificacion span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.punto-clasificacion {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.punto-nacional { background-color: var(--nacional); }
+.punto-internacional { background-color: var(--internacional); }
+
+.celda-puntos {
+  display: flex;
+  gap: 3px;
+  height: 9px;
+}
+
+/* ===================== CALENDARIO ===================== */
+.calendario-controles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: var(--sombra);
+  margin-bottom: 16px;
+}
+
+.calendario-controles h3 {
+  font-size: 17px;
+  color: var(--texto-oscuro);
+  min-width: 180px;
+  text-align: center;
+}
+
+.calendario-controles button {
+  background-color: var(--fondo-general);
+  border: 1px solid var(--gris-borde);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+.calendario-controles button:hover { background-color: var(--gris-borde); }
+
+.calendario-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+}
+
+.calendario-dia-nombre {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--texto-medio);
+  text-transform: uppercase;
+  padding-bottom: 6px;
+}
+
+.calendario-celda {
+  aspect-ratio: 1;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  background-color: var(--fondo-general);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--texto-oscuro);
+  position: relative;
+}
+
+.calendario-celda.vacia {
+  border: none;
+  background: none;
+  cursor: default;
+}
+
+.calendario-celda:hover:not(.vacia) { background-color: var(--verde-claro); }
+
+.calendario-celda.es-hoy {
+  border-color: var(--terracota);
+  border-width: 2px;
+  font-weight: 700;
+}
+
+.calendario-celda.es-seleccionada {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+}
+
+.celda-indicador {
+  background-color: var(--terracota);
+  color: var(--blanco);
+  font-size: 10px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Marca los días que son continuación de un evento de varios días (no el
+   día de inicio), para que se entienda que es el mismo evento repartido
+   en el calendario y no eventos independientes. */
+.calendario-celda.es-continuacion {
+  background-color: var(--verde-claro);
+}
+
+.celda-barra-varios-dias {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 3px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--verde-principal);
+}
+
+.calendario-celda.es-seleccionada .celda-barra-varios-dias {
+  background-color: var(--blanco);
+}
+
+.panel-dia {
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.panel-dia-titulo {
+  font-size: 14px;
+  color: var(--texto-oscuro);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+/* ===================== CENTRO DE ALERTAS (CAMPANA) ===================== */
+.page-header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.campana-wrapper {
+  position: relative;
+}
+
+.btn-campana {
+  position: relative;
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-campana:hover { background-color: var(--fondo-general); }
+
+.campana-contador {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--rojo-alerta);
+  color: var(--blanco);
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.panel-alertas {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  max-width: 90vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  padding: 14px;
+  z-index: 50;
+}
+
+.panel-alertas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-alertas-header h3 {
+  font-size: 14px;
+  color: var(--texto-oscuro);
+  margin-bottom: 8px;
+}
+
+.btn-cerrar-alertas {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--texto-medio);
+  cursor: pointer;
+  padding: 6px 8px;
+  margin: -6px -8px -6px 0;
+}
+.btn-cerrar-alertas:hover { color: var(--texto-oscuro); }
+
+.panel-alertas-filtros {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip-clasificacion-alerta {
+  border: 1px solid var(--gris-borde);
+  background-color: var(--fondo-general);
+  color: var(--texto-medio);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip-clasificacion-alerta.activo {
+  background-color: var(--verde-principal);
+  border-color: var(--verde-principal);
+  color: var(--blanco);
+}
+
+.lista-alertas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  background-color: var(--fondo-general);
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.item-alerta:hover { background-color: var(--verde-claro); }
+
+.item-alerta-punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+  background-color: var(--gris-borde);
+}
+.item-alerta.estado-hoy .item-alerta-punto { background-color: var(--rojo-alerta); }
+.item-alerta.estado-manana .item-alerta-punto { background-color: var(--terracota); }
+.item-alerta.estado-proximo .item-alerta-punto { background-color: #E0A526; }
+.item-alerta.estado-semana .item-alerta-punto { background-color: var(--verde-principal); }
+
+.item-alerta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+.item-alerta-info strong { font-size: 13px; color: var(--texto-oscuro); }
+.item-alerta-clasificacion { color: var(--texto-medio); }
+.item-alerta-mensaje { color: var(--texto-oscuro); font-weight: 600; }
+.item-alerta-fecha { color: var(--texto-medio); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .calendario-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-nav a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .sidebar-footer { display: none; }
+
+  .main-content {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-titulo p { display: none; }
+  .fila-doble { grid-template-columns: 1fr; }
+  .lista-eventos { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}

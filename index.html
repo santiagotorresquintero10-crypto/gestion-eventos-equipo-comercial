@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – Gestión de Eventos | Equipo Comercial</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ===== MENÚ LATERAL ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="img/logo.png" alt="Central Ganadera S.A.">
+        <div class="sidebar-titulo">
+          <h1>GESTIÓN DE EVENTOS</h1>
+          <p>Equipo Comercial</p>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html" class="activo">📊 Dashboard</a></li>
+        <li><a href="eventos.html">📅 Próximos eventos</a></li>
+        <li><a href="calendario.html">🗓️ Calendario</a></li>
+        <li><a href="historico.html">🗂️ Histórico</a></li>
+      </ul>
+      <div class="sidebar-footer">Central Ganadera S.A.</div>
+    </aside>
+
+    <!-- ===== CONTENIDO ===== -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Vista general de los eventos comerciales del sector agropecuario.</p>
+        </div>
+        <div class="page-header-acciones">
+          <div id="alertas-root"></div>
+          <button id="btn-nuevo-evento" class="btn-primario">+ Nuevo evento</button>
+        </div>
+      </div>
+
+      <!-- Indicadores -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-numero" id="stat-hoy">0</div>
+          <div class="stat-etiqueta">Eventos hoy</div>
+          <div class="stat-desglose" id="stat-hoy-desglose"></div>
+        </div>
+        <div class="stat-card acento-terracota">
+          <div class="stat-numero" id="stat-semana">0</div>
+          <div class="stat-etiqueta">Esta semana</div>
+          <div class="stat-desglose" id="stat-semana-desglose"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero" id="stat-mes">0</div>
+          <div class="stat-etiqueta">Este mes</div>
+          <div class="stat-desglose" id="stat-mes-desglose"></div>
+        </div>
+        <div class="stat-card acento-terracota">
+          <div class="stat-numero" id="stat-proximos">0</div>
+          <div class="stat-etiqueta">Próximos eventos</div>
+          <div class="stat-desglose" id="stat-proximos-desglose"></div>
+        </div>
+      </div>
+
+      <h3 class="seccion-titulo">Próximos eventos</h3>
+      <div class="chips-rapidos">
+        <button class="chip-filtro activo" data-filtro="todos">Todos</button>
+        <button class="chip-filtro" data-filtro="nacional">🇨🇴 Nacionales</button>
+        <button class="chip-filtro" data-filtro="internacional">🌎 Internacionales</button>
+        <button class="chip-filtro" data-filtro="importantes">⭐ Importantes</button>
+      </div>
+      <div class="lista-eventos" id="lista-proximos-dashboard">
+        <p class="mensaje-vacio">Cargando eventos...</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Aquí se inyecta el modal de nuevo/editar evento -->
+  <div id="modal-root"></div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico – Gestión de Eventos | Equipo Comercial</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="img/logo.png" alt="Central Ganadera S.A.">
+        <div class="sidebar-titulo">
+          <h1>GESTIÓN DE EVENTOS</h1>
+          <p>Equipo Comercial</p>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">📊 Dashboard</a></li>
+        <li><a href="eventos.html">📅 Próximos eventos</a></li>
+        <li><a href="calendario.html">🗓️ Calendario</a></li>
+        <li><a href="historico.html" class="activo">🗂️ Histórico</a></li>
+      </ul>
+      <div class="sidebar-footer">Central Ganadera S.A.</div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2>Histórico de eventos</h2>
+          <p>Eventos que ya se realizaron. No se eliminan automáticamente.</p>
+        </div>
+        <div class="page-header-acciones">
+          <div id="alertas-root"></div>
+        </div>
+      </div>
+
+      <div class="barra-filtros">
+        <div class="fila-filtros">
+          <input type="text" id="buscar-historico" placeholder="🔍 Buscar por nombre del evento...">
+        </div>
+      </div>
+
+      <p class="contador-resultados" id="contador-historico">Cargando eventos...</p>
+
+      <div class="lista-eventos" id="lista-historico"></div>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/historico.js"></script>
+</body>
+</html>
